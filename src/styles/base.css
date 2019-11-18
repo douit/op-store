@@ -1,0 +1,48 @@
+/*去除默认边距*/
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6,
+pre, form, fieldset, input, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+/*文本样式*/
+ol, ul, li {
+    list-style: none;
+}
+a, a:link, a:visited {
+    color: #000;
+    text-decoration: none;
+}
+a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+em {
+    font-style: normal;
+}
+img {
+    vertical: middle; /* 去除底部空白*/
+}
+textarea {
+    resize: none; /* 防止拖拽 */
+    outline: none; /* 取消蓝色边框 */
+}
+input, button, select {
+    outline: none;
+}
+/*浮动*/
+.lf {
+    float: left;
+}
+.rf {
+    float: right
+}
+.clearfix:before .cleafix:after {
+    content: '';
+    display: table; /* 触发 BFC */
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    *zoom: 1;
+}
