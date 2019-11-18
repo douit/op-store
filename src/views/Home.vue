@@ -1,5 +1,5 @@
 <template>
-  <div class="w">
+  <div>
     <header-com></header-com>
     <main-content></main-content>
     <footer-com></footer-com>

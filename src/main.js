@@ -19,6 +19,10 @@ import './mock/index.js'
 import api from './http/index.js'
 Vue.use(api) // 挂载全局 api 对象 通过 this.$api 调用
 
+/*lang*/
+import lang from './lang/index.js'
+Vue.use(lang)
+
 /*路由拦截控制器*/
 import './permission.js'
 
