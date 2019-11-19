@@ -7,6 +7,19 @@ const header = {
     login: 'login'
 }
 
+const index = {
+    dataBlock: [
+        'appTotalNum',
+        'appFirm',
+        'updateTime'
+    ],
+    blockTitle: [
+        'recommendApp',
+        'allApplication'
+    ]
+}
+
 export default {
-    header
+    header,
+    index
 }

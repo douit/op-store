@@ -2,6 +2,7 @@ const debug = process.env.NODE_ENV === 'development'
 const productionRootDirectory = 'web-exam'
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CompressionPlugin = require("compression-webpack-plugin")
+const webpack = require("webpack")
 
 module.exports = {
     publicPath: process.env.NODE_ENV === 'production'
@@ -23,6 +24,9 @@ module.exports = {
                 deleteOriginalAssets: false // 是否删除原文件
             }))
         }
+        config.plugins.push(new webpack.ProvidePlugin({
+            $: 'jquery'
+        }))
     },
     chainWebpack(config) {
         // 取消打包后静态资源文件预加载

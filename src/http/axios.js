@@ -43,6 +43,12 @@ const resInterceptor = server.interceptors.response.use((response) => {
         })
         return Promise.reject(res.message || 'error')
     } else {
+        /* 自定义 code 处理 */
+        if(res.code === 200){
+            res.code = 0
+        } else {
+            res.code = 1
+        }
         return res
     }
 }, (err) => {
