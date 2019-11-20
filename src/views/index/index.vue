@@ -24,7 +24,7 @@
             <div class="content">
                 <ul>
                     <li v-for="app in recommendApp" :key="app.id">
-                        <app-info :app="app" :userTypeList="classifyList[2]"></app-info>
+                        <app-info v-if="classifyList.length > 0" :app="app" :userTypeList="classifyList[1]"></app-info>
                     </li>
                 </ul>
             </div>
@@ -34,16 +34,17 @@
             <div class="title">{{ lang.index.blockTitle[1] }}</div>
             <div class="content">
                 <div class="classify">
-                    <ul>
+                    <label class="lf">{{ lang.index.classifyList }}：</label>
+                    <ul class="lf">
                         <li v-for="item in classifyList[0]" :key="item.id" :class="categoryId===item.id?'active':''">
                             <span>{{ item[`${langStr}_name`] }}</span>
                         </li>
                     </ul>
                 </div>
                 <div class="app-block">
-                    <ul>
-                        <li v-for="app in appBlock" :key="app.id">
-                            <app-info :app="app" :userTypeList="classifyList[2]"></app-info>
+                    <ul v-for="i in Math.ceil(appBlock.length/rowNum)">
+                        <li v-for="(app,j) in appBlock" v-if="j>=(i-1)*rowNum && j<i*rowNum" :key="app.id">
+                            <app-info :app="app" :userTypeList="classifyList[1]"></app-info>
                         </li>
                     </ul>
                 </div>
@@ -81,6 +82,7 @@
                 recommendApp: [], // 推荐应用
                 categoryId: null, // 默认激活应用类型
                 appBlock: [], // 全部应用模块展示应用信息
+                rowNum: 3, // 每行 显示 3 个应用信息
             }
         },
         created() {
@@ -142,7 +144,7 @@
 
             // 获取当前类别下的应用信息
             getAppByClassify(categoryId) {
-                this.$api.index.getClassifyList(categoryId).then(res => {
+                this.$api.index.getAppByClassify(categoryId).then(res => {
                     if (res.code === 0) {
                         this.appBlock = res.data
                     } else {
@@ -155,6 +157,26 @@
 </script>
 
 <style scoped lang="scss">
+
+    /* 应用列表 */
+    .recom-app .content, .all-app .app-block {
+        height: 143px;
+        overflow: hidden;
+        > ul {
+            height: 143px;
+        }
+        > ul > li {
+            float: left;
+            box-sizing: border-box;
+            border: 1px solid #dddddd;
+            border-radius: 6px;
+            padding: 20px 20px 0;
+        }
+        > ul > li:not(:first-of-type) {
+            margin-left: 22px;
+        }
+    }
+
     /* 轮播*/
     .carousel {
         height: 340px;
@@ -212,5 +234,33 @@
     /* 推荐应用 */
     .recom-app {
         height: 250px;
+    }
+
+    /* 全部应用 */
+    .all-app {
+        .content .classify {
+            box-sizing: border-box;
+            height: 56px;
+            line-height: 32px;
+            border: 1px solid #eeeeee;
+            border-radius: 6px;
+            font-size: 16px;
+            padding: 11px 20px;
+        }
+        .content .classify > label {
+            color: #666666;
+            font-weight: bold;
+        }
+        .content .classify li {
+            float: left;
+            width: 120px;
+            cursor: pointer;
+        }
+        .content .classify li.active {
+            color: #3088ec;
+        }
+        .app-block {
+            margin-top: 17px;
+        }
     }
 </style>

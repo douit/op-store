@@ -26,102 +26,20 @@ const options = [
         {levelCode: 43, levelName: '区级'},
         {levelCode: 44, levelName: '校级'},
     ]
-]
+];
 
 // 所有应用
 const allApp = [
-    {
-        id: 1,
-        zh_name: '赣教云盘',
-        en_name: 'Martyrdom Cloud Disk',
-        firm: '',
-        userType: '2,3,4',
-        describe: '',
-        updateTime: '2019-10-29',
-        appOrigin: 0,
-        appLevel: 40,
-        icon: 'http://store.jxeduyun.com/resource/showImg?path=/storeAppIcon/1ab1435e-573d-43c2-bce7-bb3827b40c10.png',
-        isFree: true
-    },
-    {
-        id: 2,
-        zh_name: '赣教云盘',
-        en_name: 'Martyrdom Cloud Disk',
-        firm: '',
-        userType: '2,3,4',
-        describe: '',
-        updateTime: '2019-10-29',
-        appOrigin: 1,
-        appLevel: 41,
-        icon: 'http://store.jxeduyun.com/resource/showImg?path=/storeAppIcon/1ab1435e-573d-43c2-bce7-bb3827b40c10.png',
-        isFree: false
-    },
-    {
-        id: 3,
-        zh_name: '赣教云盘',
-        en_name: 'Martyrdom Cloud Disk',
-        firm: '',
-        userType: '2,3,4',
-        describe: '',
-        updateTime: '2019-10-29',
-        appOrigin: 2,
-        appLevel: 42,
-        icon: 'http://store.jxeduyun.com/resource/showImg?path=/storeAppIcon/1ab1435e-573d-43c2-bce7-bb3827b40c10.png',
-        isFree: true
-    },
-    {
-        id: 4,
-        zh_name: '赣教云盘',
-        en_name: 'Martyrdom Cloud Disk',
-        firm: '',
-        userType: '2,3,4',
-        describe: '',
-        updateTime: '2019-10-29',
-        appOrigin: 3,
-        appLevel: 43,
-        icon: 'http://store.jxeduyun.com/resource/showImg?path=/storeAppIcon/1ab1435e-573d-43c2-bce7-bb3827b40c10.png',
-        isFree: false
-    },
-    {
-        id: 5,
-        zh_name: '赣教云盘',
-        en_name: 'Martyrdom Cloud Disk',
-        firm: '',
-        userType: '2,3,4',
-        describe: '',
-        updateTime: '2019-10-29',
-        appOrigin: 4,
-        appLevel: 44,
-        icon: 'http://store.jxeduyun.com/resource/showImg?path=/storeAppIcon/1ab1435e-573d-43c2-bce7-bb3827b40c10.png',
-        isFree: true
-    },
-    {
-        id: 6,
-        zh_name: '赣教云盘',
-        en_name: 'Martyrdom Cloud Disk',
-        firm: '',
-        userType: '2,3,4',
-        describe: '',
-        updateTime: '2019-10-29',
-        appOrigin: 5,
-        appLevel: 42,
-        icon: 'http://store.jxeduyun.com/resource/showImg?path=/storeAppIcon/1ab1435e-573d-43c2-bce7-bb3827b40c10.png',
-        isFree: false
-    },
-    {
-        id: 7,
-        zh_name: '赣教云盘',
-        en_name: 'Martyrdom Cloud Disk',
-        firm: '',
-        userType: '2,3,4',
-        describe: '',
-        updateTime: '2019-10-29',
-        appOrigin: 6,
-        appLevel: 43,
-        icon: 'http://store.jxeduyun.com/resource/showImg?path=/storeAppIcon/1ab1435e-573d-43c2-bce7-bb3827b40c10.png',
-        isFree: true
-    },
-]
+    {id: 1,zh_name: '赣教云盘',en_name: 'Martyrdom Cloud Disk',firm: '',userType: '2,3,4',describe: '',updateTime: '2019-10-29',appOrigin: 0,appLevel: 40,icon: 'http://store.jxeduyun.com/resource/showImg?path=/storeAppIcon/1ab1435e-573d-43c2-bce7-bb3827b40c10.png', isFree: true},
+    {id: 2,zh_name: '赣教云盘',en_name: 'Martyrdom Cloud Disk',firm: '',userType: '2,3,4',describe: '',updateTime: '2019-10-29',appOrigin: 0,appLevel: 40,icon: 'http://store.jxeduyun.com/resource/showImg?path=/storeAppIcon/1ab1435e-573d-43c2-bce7-bb3827b40c10.png', isFree: true},
+    {id: 3,zh_name: '赣教云盘',en_name: 'Martyrdom Cloud Disk',firm: '',userType: '2,3,4',describe: '',updateTime: '2019-10-29',appOrigin: 0,appLevel: 40,icon: 'http://store.jxeduyun.com/resource/showImg?path=/storeAppIcon/1ab1435e-573d-43c2-bce7-bb3827b40c10.png', isFree: true},
+    {id: 4,zh_name: '赣教云盘',en_name: 'Martyrdom Cloud Disk',firm: '',userType: '2,3,4',describe: '',updateTime: '2019-10-29',appOrigin: 0,appLevel: 40,icon: 'http://store.jxeduyun.com/resource/showImg?path=/storeAppIcon/1ab1435e-573d-43c2-bce7-bb3827b40c10.png', isFree: true},
+    {id: 5,zh_name: '赣教云盘',en_name: 'Martyrdom Cloud Disk',firm: '',userType: '2,3,4',describe: '',updateTime: '2019-10-29',appOrigin: 0,appLevel: 40,icon: 'http://store.jxeduyun.com/resource/showImg?path=/storeAppIcon/1ab1435e-573d-43c2-bce7-bb3827b40c10.png', isFree: true},
+    {id: 6,zh_name: '赣教云盘',en_name: 'Martyrdom Cloud Disk',firm: '',userType: '2,3,4',describe: '',updateTime: '2019-10-29',appOrigin: 0,appLevel: 40,icon: 'http://store.jxeduyun.com/resource/showImg?path=/storeAppIcon/1ab1435e-573d-43c2-bce7-bb3827b40c10.png', isFree: true},
+    {id: 7,zh_name: '赣教云盘',en_name: 'Martyrdom Cloud Disk',firm: '',userType: '2,3,4',describe: '',updateTime: '2019-10-29',appOrigin: 0,appLevel: 40,icon: 'http://store.jxeduyun.com/resource/showImg?path=/storeAppIcon/1ab1435e-573d-43c2-bce7-bb3827b40c10.png', isFree: true},
+    {id: 8,zh_name: '赣教云盘',en_name: 'Martyrdom Cloud Disk',firm: '',userType: '2,3,4',describe: '',updateTime: '2019-10-29',appOrigin: 0,appLevel: 40,icon: 'http://store.jxeduyun.com/resource/showImg?path=/storeAppIcon/1ab1435e-573d-43c2-bce7-bb3827b40c10.png', isFree: true},
+    {id: 9,zh_name: '赣教云盘',en_name: 'Martyrdom Cloud Disk',firm: '',userType: '2,3,4',describe: '',updateTime: '2019-10-29',appOrigin: 0,appLevel: 40,icon: 'http://store.jxeduyun.com/resource/showImg?path=/storeAppIcon/1ab1435e-573d-43c2-bce7-bb3827b40c10.png', isFree: true},
+];
 
 // 轮播图片
 function getCarousel() {
@@ -187,6 +105,7 @@ function getAppByClassify() {
         method: 'get',
         response: (params) => {
             console.log(params);
+            data.data = allApp.filter(item => item.appOrigin == params.categoryId)
             return data
         }
     }
@@ -194,8 +113,8 @@ function getAppByClassify() {
 
 export default [
     // 立即执行函数
-    (getCarousel)()
-    (getRecommendApp)()
-    (getClassifyList)()
-    (getAppByClassify)()
+    (getCarousel)(),
+    (getRecommendApp)(),
+    (getClassifyList)(),
+    (getAppByClassify)(),
 ]

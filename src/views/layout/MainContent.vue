@@ -11,5 +11,7 @@
 </script>
 
 <style scoped>
-
+    .main-wrapper {
+        padding-bottom: 50px;
+    }
 </style>

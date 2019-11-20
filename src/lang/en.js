@@ -7,6 +7,10 @@ const header = {
     login: 'login'
 }
 
+const footer = {
+    copyright: 'Supervisor: Sponsored by Jiangxi Provincial Department of Education: Jiangxi Electric Education Education Center Technical Support of Jiangxi Basic Education Resource Center: Keda Xunfei Co., Ltd.'
+}
+
 const index = {
     dataBlock: [
         'appTotalNum',
@@ -19,12 +23,14 @@ const index = {
     ],
     appInfo: {
         firm: 'firm',
-        userType: 'targetUsers',
+        userType: 'users',
         updateTime: 'updateTime'
-    }
+    },
+    classifyList: 'classify'
 }
 
 export default {
     header,
+    footer,
     index
 }
