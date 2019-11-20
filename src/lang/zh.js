@@ -16,7 +16,12 @@ const index = {
     blockTitle: [
         '推/荐/应/用',
         '全/部/应/用'
-    ]
+    ],
+    appInfo: {
+        firm: '开发商',
+        userType: '目标用户',
+        updateTime: '更新时间'
+    }
 }
 
 export default {

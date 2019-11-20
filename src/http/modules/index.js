@@ -4,25 +4,36 @@ import axios from '../axios.js'
 export const getCarousel = () => {
     return axios({
         url: '/resouces/index/images',
-        methods: 'get',
+        method: 'get',
         params: {}
     })
 }
 
 /* 获取推荐应用 */
-export const getRecomApp = () => {
+export const getRecommendApp = () => {
     return axios({
-        url: '/index/getRecomApp',
-        methods: 'get',
+        url: '/index/getRecommendApp',
+        method: 'get',
         params: {}
     })
 }
 
-/* 获取全部应用 */
-export const getAllApp = (data) => {
+/* 获取应用基本分类信息 */
+export const getClassifyList = () => {
     return axios({
-        url: '/index/getAllApp',
-        methods: 'post',
-        data
+        url: '/index/getClassifyList',
+        method: 'get',
+        params: {}
+    })
+}
+
+/* 根据类别获取应用 */
+export const getAppByClassify = (categoryId) => {
+    return axios({
+        url: `/index/getAppByClassify`,
+        method: 'get',
+        params: {
+            categoryId: categoryId
+        }
     })
 }

@@ -16,7 +16,12 @@ const index = {
     blockTitle: [
         'recommendApp',
         'allApplication'
-    ]
+    ],
+    appInfo: {
+        firm: 'firm',
+        userType: 'targetUsers',
+        updateTime: 'updateTime'
+    }
 }
 
 export default {

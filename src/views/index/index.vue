@@ -21,18 +21,47 @@
         <!-- 推荐应用 -->
         <div class="recom-app block w">
             <div class="title">{{ lang.index.blockTitle[0] }}</div>
+            <div class="content">
+                <ul>
+                    <li v-for="app in recommendApp" :key="app.id">
+                        <app-info :app="app" :userTypeList="classifyList[2]"></app-info>
+                    </li>
+                </ul>
+            </div>
         </div>
+        <!-- 全部应用 -->
         <div class="all-app block w">
             <div class="title">{{ lang.index.blockTitle[1] }}</div>
+            <div class="content">
+                <div class="classify">
+                    <ul>
+                        <li v-for="item in classifyList[0]" :key="item.id" :class="categoryId===item.id?'active':''">
+                            <span>{{ item[`${langStr}_name`] }}</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="app-block">
+                    <ul>
+                        <li v-for="app in appBlock" :key="app.id">
+                            <app-info :app="app" :userTypeList="classifyList[2]"></app-info>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
+    import { mapGetters } from 'vuex'
     import {message} from '@/utils/message'
+    import AppInfo from "./AppInfo";
 
     export default {
         name: "index",
+        components: {
+            AppInfo
+        },
         computed: {
             lang: {
                 get() {
@@ -40,17 +69,25 @@
                 },
                 set(val) {}
             },
-
+            ...mapGetters({
+                langStr: 'lang'
+            }),
         },
         data: function () {
             return {
-                carouselImages: [],
-                dataBlock: []
+                carouselImages: [], // 轮播图片
+                dataBlock: [], // 轮播模块 应用数据
+                classifyList: [], // 应用基本分类信息(类型，目标用户，级别)
+                recommendApp: [], // 推荐应用
+                categoryId: null, // 默认激活应用类型
+                appBlock: [], // 全部应用模块展示应用信息
             }
         },
         created() {
             this.getCarousel()
             this.initDataBlock()
+            this.getClassifyList()
+            this.getRecommendApp()
         },
         watch: {
             lang() {
@@ -77,7 +114,42 @@
                     {className: 'app-firm', label: this.lang.index.dataBlock[1], span: [{ className: 'value', value: 48},{className:'plus',value:'+'}]},
                     {className: 'update-time', label: this.lang.index.dataBlock[2], span: [{ className: 'time', value: '2019-11-6'}]}
                 ]
-            }
+            },
+
+            // 获取推荐应用
+            getRecommendApp() {
+                this.$api.index.getRecommendApp().then(res => {
+                    if (res.code === 0) {
+                        this.recommendApp = res.data
+                    } else {
+                        message('warning', res.message)
+                    }
+                })
+            },
+
+            // 获取应用基本分类信息
+            getClassifyList() {
+                this.$api.index.getClassifyList().then(res => {
+                    if (res.code === 0) {
+                        this.classifyList = res.data
+                        this.categoryId = res.data[0][0].id
+                        this.getAppByClassify(this.categoryId)
+                    } else {
+                        message('warning', res.message)
+                    }
+                })
+            },
+
+            // 获取当前类别下的应用信息
+            getAppByClassify(categoryId) {
+                this.$api.index.getClassifyList(categoryId).then(res => {
+                    if (res.code === 0) {
+                        this.appBlock = res.data
+                    } else {
+                        message('warning', res.message)
+                    }
+                })
+            },
         }
     }
 </script>
